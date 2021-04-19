@@ -20,6 +20,9 @@ return Multithread
 	## Runner
 		Utilities for spawning code in new threads.
 
+		Runner.TheirChannel: string
+			A constant representing the channel object on the other side of the channel.
+
 		Runner.spawn(moduleScript: ModuleScript, functionName: string, ...any) -> channel: ParallelChannel, runner: Script | LocalScript, actor: Actor
 			Spawns a new actor in ServerScriptService or PlayerScripts that will run
 			the function in the given module script with the given args.
@@ -115,7 +118,7 @@ return Multithread
 			synchronization.
 
 		ParalllelChannel:invoke(funcName: string, ...any) -> ...any
-			Invokes the function on the other side of the channel, then retyrns
+			Invokes the function on the other side of the channel, then returns
 			the results.
 
 			The function will be fired as soon as this thread is synchronized with
@@ -220,7 +223,7 @@ return Multithread
 
 		resumeWithErrorHandling(coroutine: Coroutine, ...any) -> void
 			Resumes the target coroutine and warns if any errors occurred.
-			Does not return any results, sash as arguments to
+			Does not return any results, such as arguments to
 			coroutine.yield. If you need those, you will need to handle
 			errors yourself.
 
@@ -273,7 +276,7 @@ return Multithread
 			Unpacks the args table, replacing any nil placeholders
 			with actual nils.
 
-	# ArgSymbolReplacement
+	## ArgSymbolReplacement
 		Tools for replacing "symbols" in arguments with actual values,
 		or vice versa.
 
