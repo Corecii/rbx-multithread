@@ -1,6 +1,7 @@
 [package]
-name = "multithread-library"
+name = "Multithread"
 version = "0.1.0"
 author = "Corecii"
+content_root = "src/Multithread"
 
 [dependencies]
