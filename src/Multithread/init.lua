@@ -65,7 +65,7 @@ return Multithread
 		* handles potential holes in values sent through bindables
 		* has appropriate task.(de)synchronize calls.
 
-		Treat this channel as you would a Remote-base network channel.
+		Treat this channel as you would a Remote-based network channel.
 
 		You still must be aware of bindable limitations, like how tables are copied
 		and how mixed array/dictionaries are not allowed. These restrictions cannot
@@ -165,7 +165,7 @@ return Multithread
 
 	## Event
 		An Event AKA Signal object:
-		* Supports camelCase and pascalCase for API compatibility
+		* Supports camelCase and PascalCase for API compatibility
 		* Doesn't use Bindables, so it works when a VM is desynchronized
 		* Unordered
 		* Properly handles connections and disconnections while firing
