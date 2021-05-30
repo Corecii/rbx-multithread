@@ -138,12 +138,12 @@ function ParallelChannel:onFiredParallel(eventName, callback)
 	return self:_getParallelEvent(eventName):connect(callback)
 end
 
-function ParallelChannel:awaitFired(eventName)
-	return self:_getEvent(eventName):wait()
+function ParallelChannel:awaitFiredUnsafe(eventName)
+	return self:_getEvent(eventName):waitUnsafe()
 end
 
-function ParallelChannel:awaitFiredParallel(eventName)
-	return self:_getParallelEvent(eventName):wait()
+function ParallelChannel:awaitFiredParallelUnsafe(eventName)
+	return self:_getParallelEvent(eventName):waitUnsafe()
 end
 
 function ParallelChannel:fire(eventName, ...)

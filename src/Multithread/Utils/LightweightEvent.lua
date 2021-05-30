@@ -76,7 +76,9 @@ end
 
 Event.Connect = Event.connect
 
-function Event:wait()
+-- wait is unsafe because coroutine.resume does not play nice with the roblox
+-- task scheduler. Maybe this will be fixed someday?
+function Event:waitUnsafe()
 	assert(self._callbacks, "Event has been destroyed")
 	local coroutineToResume = coroutine.running()
 	local eventArgs

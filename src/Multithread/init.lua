@@ -103,11 +103,15 @@ return Multithread
 			Listens for an event to be fired from the other siee of the channel.
 			Runs the callback desynchronized, so it can do work in parallel.
 
-		ParallelChannel:awaitFired(eventName: string) -> ...any
+		ParallelChannel:awaitFiredUnsafe(eventName: string) -> ...any
 			Waits for this event to fire, then resumes (synchronized).
+			Potentially unsafe since coroutine.resume is used internally which does
+			not play nice with the Roblox task scheduler.
 
-		ParallelChannel:awaitFiredParallel(eventName: string) -> ...any
+		ParallelChannel:awaitFiredParallelUnsafe(eventName: string) -> ...any
 			Waits for this event to fire, then resumes (desynchronized).
+			Potentially unsafe since coroutine.resume is used internally which does
+			not play nice with the Roblox task scheduler.
 
 		ParallelChannel:fire(eventName: string, ...any) -> void
 			Fires the event on the other side of the channel with the
@@ -183,11 +187,13 @@ return Multithread
 			Connects the callback to this event.
 			If connected during an event fire, callback will not be called.
 
-		Event:wait() -> ...any
+		Event:waitUnsafe() -> ...any
 			Waits for this event to fire, then returns the args.
 			If the event is destroyed while waiting, the internal callback
 			should be GCed, and as a result the calling coroutine should
 			also be GCed. It should be safe to Destroy while :wait()ing.
+			Potentially unsafe since coroutine.resume is used internally which does
+			not play nice with the Roblox task scheduler.
 
 		Event:fire(...any) -> void
 			Fires this event.
