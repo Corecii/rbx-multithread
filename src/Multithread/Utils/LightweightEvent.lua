@@ -96,7 +96,7 @@ function Event:waitUnsafe()
 	return unpack(eventArgs, 1, eventArgsLength)
 end
 
-Event.Wait = Event.wait
+Event.WaitUnsafe = Event.waitUnsafe
 
 function Event:fire(...)
 	local callbacks = self._callbacks
